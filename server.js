@@ -47,7 +47,7 @@ app.post('/new_question', function(req, res) {
 
 
 app.post('/test', function(req, res) {
-	res.send({test: JSON.stringify(req.body)})
+	res.send({test: req.body.question})
 	
 })
 
