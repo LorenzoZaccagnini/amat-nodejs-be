@@ -31,7 +31,6 @@ app.get('/search', function(req, res) {
 })
 
 app.post('/new_question', function(req, res) {
-	console.log(req.body.question);
 	
 	if (typeof req.body.question !== 'undefined') {
 		helper.new_question(req.body.question, function(data_items) {
@@ -46,6 +45,11 @@ app.post('/new_question', function(req, res) {
 	}
 })
 
+
+app.post('/test', function(req, res) {
+	res.send({test: JSON.stringify(req.body)})
+	
+})
 
 
 app.listen(port);
