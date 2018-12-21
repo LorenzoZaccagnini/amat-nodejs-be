@@ -2,9 +2,10 @@ const express 		= require('express');
 const app 			= express();
 const bodyParser 	= require('body-parser');
 const pg = require('pg');
-
 const helper 		= require('./functions/helper.js');
+const cors = require('cors')
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
