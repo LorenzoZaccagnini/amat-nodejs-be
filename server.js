@@ -5,7 +5,11 @@ const pg = require('pg');
 const helper 		= require('./functions/helper.js');
 const cors = require('cors')
 
-app.use(cors());
+var corsOptions = {
+	origin: '*',
+	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+  }
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
