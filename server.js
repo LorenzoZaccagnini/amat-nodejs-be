@@ -42,7 +42,7 @@ app.post('/new_question', function(req, res) {
 			})
 		})
 	} else {
-		res.send({error : 'no question sent', test: req.body.question})
+		res.send({error : 'no question sent', test: JSON.stringify(req.body)})
 	}
 })
 
