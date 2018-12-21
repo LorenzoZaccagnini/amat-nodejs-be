@@ -42,7 +42,7 @@ app.post('/new_question', function(req, res) {
 			})
 		})
 	} else {
-		res.send({error : '[100] Not search params text in query.', test: req.body.question})
+		res.send({error : 'no question sent', test: req.body.question})
 	}
 })
 
