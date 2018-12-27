@@ -5,7 +5,8 @@ const pg = require('pg');
 const helper 		= require('./functions/helper.js');
 
 app.use(function(req, res, next) {
-	res.header("Access-Control-Allow-Origin", CLIENT_ORIGIN);
+	var origin = req.get('origin'); 
+	res.header('Access-Control-Allow-Origin', origin);
 	res.header(
 	  "Access-Control-Allow-Headers",
 	  "Origin, X-Requested-With, Content-Type, Accept"
