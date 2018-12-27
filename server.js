@@ -1,11 +1,23 @@
 const express 		= require('express');
 const app 			= express();
 const bodyParser 	= require('body-parser');
-var cors = require('cors'); 
-app.use(cors());
-
 const pg = require('pg');
 const helper 		= require('./functions/helper.js');
+
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", CLIENT_ORIGIN);
+	res.header(
+	  "Access-Control-Allow-Headers",
+	  "Origin, X-Requested-With, Content-Type, Accept"
+	);
+	res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE");
+	res.header("Access-Control-Allow-Credentials", true);
+	if (req.method === "OPTIONS") {
+	  return res.sendStatus(204);
+	}
+	next();
+  });
+  
 
 app.use(bodyParser.json());
 
