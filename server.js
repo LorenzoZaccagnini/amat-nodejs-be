@@ -45,6 +45,30 @@ app.post('/new_question', function(req, res) {
 	}
 })
 
+app.post('/new_table', function(req, res) {
+	
+		helper.new_table(function(data_items) {
+			res.send({
+				response : {
+					items : data_items
+				}
+			})
+		})
+
+})
+
+app.post('/drop_table', function(req, res) {
+	
+	helper.drop_table(function(data_items) {
+		res.send({
+			response : {
+				items : data_items
+			}
+		})
+	})
+
+})
+
 
 app.post('/test', function(req, res) {
 	res.send({test: req.body.question})
